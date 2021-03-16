@@ -23,10 +23,10 @@ def computador_escolhe_jogada(n, m):
 
 def usuario_escolhe_jogada(n, m):
     usuario = True
-    pecas_retiradas = int(input(Insira o nº de peças que você deseja retirar:))
-    while ((pecas_retiradas > maximo_peças) or (pecas_retiradas <= 0)):
+    pecas_retiradas = int(input("Insira o nº de peças que você deseja retirar: "))
+    while ((pecas_retiradas > m) or (pecas_retiradas > n) or (pecas_retiradas <= 0)):
         print("Ops... Nº de peças inválido! Tente novamente.")
-        pecas_retiradas = int(input(Insira o nº de peças que você deseja retirar:))
+        pecas_retiradas = int(input("Insira o nº de peças que você deseja retirar: "))
     return pecas_retiradas
 
 def partida():
@@ -37,7 +37,12 @@ def partida():
     m = int(input("Defina o limite do número de peças por jogada: "))
 
 def campeonato():
-    pass
+    for i in range(1, 4):
+        print(f'**** Rodada {i} ****', end='\n\n')
+        partida()
+
+    print("**** Final do campeonato! ****")
+    print(f"Placar: Você {vitorias_jogador} X {vitorias_computador} Computador")
 
 vitorias_jogador = 0
 vitorias_computador = 0
